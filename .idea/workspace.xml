@@ -8,7 +8,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution>
       <executable />
@@ -131,6 +131,7 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\liu\Code\1\resources\views\users" />
+      <recent name="C:\Users\liu\Code\1\resources\views\shared" />
       <recent name="C:\Users\liu\Code\1\resources\views\layouts" />
       <recent name="C:\Users\liu\Code\1\public" />
       <recent name="C:\Users\liu\Code\1\resources\views\static_pages" />
@@ -165,6 +166,8 @@
       <option name="presentableId" value="Default" />
       <updated>1575875910525</updated>
       <workItem from="1575875913441" duration="5954000" />
+      <workItem from="1576199215091" duration="2291000" />
+      <workItem from="1576204787343" duration="8586000" />
     </task>
     <servers />
   </component>
@@ -176,7 +179,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

@@ -19,4 +19,4 @@ Route::get('/about','StaticPagesController@about')->name('about');
 
 Route::get('/sigup','UsersController@create')->name('sigup');
 
-
+Route::resource('users', 'UsersController');
