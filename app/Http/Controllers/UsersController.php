@@ -33,4 +33,8 @@ class UsersController extends Controller
         Session::flash('success','注册成功');
         return redirect()->route('users.show',$user->id);
     }
+
+    public function edit(User $user){
+        dd($user->toArray());
+    }
 }
