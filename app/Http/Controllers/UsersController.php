@@ -10,6 +10,12 @@ use Illuminate\Support\Facades\Session;
 class UsersController extends Controller
 {
     //
+    public function __construct()
+    {
+        $this->middleware('auth',[
+            'except' => ['show','create','store']
+        ]);
+    }
 
     public function create(){
         return view('users.create');
@@ -22,8 +28,7 @@ class UsersController extends Controller
     public function store(Request $request){
         $this->validate($request,[
             'name' => 'required|max:50',
-            'email' => 'required|email|unique:users|max:255',
-            'password' => 'required|confirmed|min:6'
+            'password' => 'confirmed|min:6'
         ]);
         $user = User::create([
             'name' => $request->name,
@@ -34,5 +39,25 @@ class UsersController extends Controller
         Auth::login($user);
         Session::flash('success','注册成功');
         return redirect()->route('users.show',$user->id);
+    }
+
+    public function edit(User $user){
+        return view('users.edit',compact('user'));
+    }
+
+    public function update(Request $request,User $user){
+        $this->validate($request,[
+            'name' => 'required|max:50',
+            'password' => 'nullable|confirmed|min:6'
+        ]);
+        $data = [];
+        $data['name']=$request->name;
+        if ($request->password){
+            $data['password'] = $request->password;
+        }
+
+        $user->update($data);
+        Session::flash('success','更新成功');
+        return redirect()->route('users.show',$user);
     }
 }

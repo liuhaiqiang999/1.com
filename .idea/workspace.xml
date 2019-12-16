@@ -124,14 +124,14 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/sessions" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/users" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\liu\Code\1\resources\views\sessions" />
       <recent name="C:\Users\liu\Code\1\resources\views\users" />
+      <recent name="C:\Users\liu\Code\1\resources\views\sessions" />
       <recent name="C:\Users\liu\Code\1\resources\views\shared" />
       <recent name="C:\Users\liu\Code\1\resources\views\layouts" />
       <recent name="C:\Users\liu\Code\1\public" />
