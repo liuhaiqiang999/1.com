@@ -4,11 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class UsersController extends Controller
 {
     //
+    public function __construct()
+    {
+        $this->middleware('auth',[
+            'except' => ['show','create','store']
+        ]);
+    }
 
     public function create(){
         return view('users.create');
@@ -29,6 +36,7 @@ class UsersController extends Controller
             'password' => bcrypt($request->password)
 
         ]);
+        Auth::login($user);
         Session::flash('success','注册成功');
         return redirect()->route('users.show',$user->id);
     }
@@ -47,7 +55,7 @@ class UsersController extends Controller
         if ($request->password){
             $data['password'] = $request->password;
         }
-        
+
         $user->update($data);
         Session::flash('success','更新成功');
         return redirect()->route('users.show',$user);
