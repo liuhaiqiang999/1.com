@@ -13,7 +13,10 @@ class UsersController extends Controller
     public function __construct()
     {
         $this->middleware('auth',[
-            'except' => ['show','create','store']
+            'except' => ['show','create','store','index']
+        ]);
+        $this->middleware('guest', [
+            'only' => ['create']
         ]);
     }
 
@@ -46,6 +49,7 @@ class UsersController extends Controller
     }
 
     public function update(Request $request,User $user){
+        $this->authorize('update', $user);
         $this->validate($request,[
             'name' => 'required|max:50',
             'password' => 'nullable|confirmed|min:6'
@@ -59,5 +63,18 @@ class UsersController extends Controller
         $user->update($data);
         Session::flash('success','更新成功');
         return redirect()->route('users.show',$user);
+    }
+
+    public function index(){
+        $users = User::paginate(10);
+        return view('users.index',compact('users'));
+    }
+
+    public function destroy(User $user)
+    {
+        $this->authorize('destroy', $user);
+        $user->delete();
+        Session::flash('success','删除成功');
+        return back();
     }
 }

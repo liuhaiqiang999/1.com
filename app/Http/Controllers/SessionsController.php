@@ -14,17 +14,13 @@ class SessionsController extends Controller
     }
 
     public function store(Request $request){
-<<<<<<< HEAD
-        $credentials  = $this->validate($request,[
-=======
         $credentials = $this->validate($request,[
->>>>>>> user-crud
             'email' => 'required|email|max:255',
             'password' => 'required'
         ]);
         if (Auth::attempt($credentials,$request->has('remember'))){
             Session::flash('success','欢迎回来');
-            return redirect()->route('users.show',Auth::user()->id);
+            return redirect()->intended(route('users.show',Auth::user()->id));
         }else{
             Session::flash('danger','登录失败,请检查账号和密码是否正确');
             return redirect()->back()->withInput();
