@@ -24,6 +24,7 @@ $factory->define(User::class, function (Faker $faker) {
         'email_verified_at' => now(),
         'password' => bcrypt('admin'), // password
         'remember_token' => Str::random(10),
+        'activated' => true,
         'created_at' => $date_time,
         'updated_at' => $date_time,
     ];
